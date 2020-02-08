@@ -103,10 +103,12 @@ function Circle(x, y, dx, dy, radius) {
         if(mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
             if(this.radius < maxRadius) {
                 this.radius += 1;
+                
             }
             
         } else if (this.radius > this.minRadius){
             this.radius -= 1;
+            
         }
 
 
@@ -127,7 +129,7 @@ var circleArray = [];
 function init() {
 
     circleArray = [];
-    for (var i = 0; i < 500; i++) {
+    for (var i = 0; i < 700; i++) {
         var radius = Math.random() * 3 + 1;
         var x = Math.random() * (innerWidth - radius * 2) + radius;
         var y = Math.random() * (innerHeight - radius * 2) + radius;
@@ -136,10 +138,16 @@ function init() {
         circleArray.push(new Circle(x, y, dx, dy, radius));
     }
 }
-
+const backgroundGradient = c.createLinearGradient(0, 0, 0, canvas.height)
+backgroundGradient.addColorStop(0, '#171e26')
+backgroundGradient.addColorStop(1, '#3f586b')
 function animate() {
     requestAnimationFrame(animate);
-    c.clearRect(0, 0,innerWidth, innerHeight);   
+    c.fillStyle = backgroundGradient
+    //
+    c.fillRect(0, 0, canvas.width, canvas.height)
+    // c.clearRect(0, 0,innerWidth, innerHeight);   
+    
 
     for(var i = 0; i < circleArray.length; i++) {
         circleArray[i].update();

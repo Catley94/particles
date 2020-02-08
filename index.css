@@ -1,10 +1,28 @@
-html, body {
+* {
     margin: 0;
     padding: 0;
+}
+
+html, body {
+
     height: 99vh;
     width: 99vw;
+    position: relative;
+    display: grid;
+    
 }
 
 canvas {
+    height: 100%;
+    width: 100%;
     border: 1px solid black;
+}
+
+.main-content {
+    background: white;
+    position: absolute;
+    height: 20rem;
+    width: 20rem;
+    top: 1rem;
+    left: 1rem;
 }
